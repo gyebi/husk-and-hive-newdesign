@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Husk & Hive</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="hh.js" defer></script>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <header class="nav">
+      <a href="#home" class="brand">
+        <img src="images/logo.jpeg" class="logo" alt="Husk & Hive logo" />
+        <span>Husk & Hive</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#story">Our Story</a>
+        <a href="#why">Why Us</a>
+        <a href="order.html" class="nav-order">Order</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>Pure from Nature.<br />Made for You.</h1>
+        <p>Organic legumes & raw honey from Ghana.</p>
+      </div>
+
+      <div class="hero-image">
+        <img src="images/honey.jpeg" alt="Honey" />
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- TRUST -->
+    <section class="trust">
+      <p>🌿 100% Natural</p>
+      <p>🇬🇭 Made in Ghana</p>
+      <p>🚫 No Additives</p>
+      <p>❤️ Healthy Living</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PRODUCTS -->
+    <section class="products" id="products">
+      <h2>Our Products</h2>
+      <div class="products-intro">
+        <p>
+          We proudly source our organic products from the Northern Region of
+          Ghana, working closely with women-led farming communities who are at
+          the heart of sustainable and environmentally friendly ventures.
+        </p>
+        <p>
+          Every jar tells a story of care, community, and connection to the
+          land, bringing you real food just as nature intended.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <div class="card">
+          <img
+            src="images/honey-main-labelled.png"
+            alt="Husk and Hive raw honey"
+          />
+          <h3>Raw Honey</h3>
+          <p>
+            Pure, unprocessed honey collected using traditional methods that
+            preserve its natural flavor and goodness.
+          </p>
+          <ul>
+            <li>Naturally sweet</li>
+            <li>No additives</li>
+            <li>Raw and unfiltered</li>
+          </ul>
+          <a href="order.html" class="btn-primary">Order</a>
+        </div>
+
+        <div class="card">
+          <img
+            src="images/gnut-labelled.jpeg"
+            alt="Husk and Hive groundnut paste"
+          />
+          <h3>Groundnut Paste</h3>
+          <p>
+            Carefully harvested groundnuts processed into a rich, creamy tasty
+            paste for everyday meals and snacks.
+          </p>
+          <ul>
+            <li>Protein-rich</li>
+            <li>Smooth texture</li>
+            <li>100% natural</li>
+          </ul>
+          <a href="order.html" class="btn-primary">Order</a>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- STORY -->
+    <section class="story" id="story">
+      <div class="story-carousel" aria-label="Husk & Hive story photos">
+        <div class="carousel-track">
+          <img
+            class="carousel-slide active"
+            src="images/north-gh-shot.png"
+            alt="Northern Ghana landscape"
+          />
+          <img
+            class="carousel-slide"
+            src="images/north-shot.png"
+            alt="Farming community in Northern Ghana"
+          />
+          <img
+            class="carousel-slide"
+            src="images/apiary.png"
+            alt="Apiary with beehives"
+          />
+        </div>
+
+        <button
+          class="carousel-btn carousel-prev"
+          type="button"
+          aria-label="Previous story photo"
+        >
+          &lsaquo;
+        </button>
+        <button
+          class="carousel-btn carousel-next"
+          type="button"
+          aria-label="Next story photo"
+        >
+          &rsaquo;
+        </button>
+
+        <div class="carousel-dots" aria-label="Story carousel controls">
+          <button
+            class="carousel-dot active"
+            type="button"
+            aria-label="Show Northern Ghana landscape"
+          ></button>
+          <button
+            class="carousel-dot"
+            type="button"
+            aria-label="Show farming community"
+          ></button>
+          <button
+            class="carousel-dot"
+            type="button"
+            aria-label="Show apiary"
+          ></button>
+        </div>
+      </div>
+
+      <div class="story-text">
+        <h2>Our Story</h2>
+        <p>"Since when did honey become a luxury?"</p>
+        <p>
+          That was the question I asked after picking up a bottle of honey from
+          the shop and seeing the price tag.
+        </p>
+        <p>
+          That moment sparked the quest to source pure, natural, authentic
+          products at an affordable price: groundnut paste and honey with no
+          additives, no shortcuts, just real food.
+        </p>
+        <p>
+          Today, Husk & Hive is more than a brand. It is a commitment to purity,
+          community, and bringing you food the way it was always meant to be.
+        </p>
+        <p>From the earth, straight to you. 🌿🍯</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- WHY -->
+    <section class="why" id="why">
+      <h2>Why Husk & Hive?</h2>
+
+      <div class="why-grid">
+        <ul class="ul-left">
+          <li>You deserve food you can actually trust and afford.</li>
+          <li>
+            100% Pure ingredients — no additives, no preservatives, no
+            shortcuts.
+          </li>
+          <li>Honestly labelled — what you see on the jar is what you get.</li>
+        </ul>
+        <ul class="ul-right">
+          <li>Made fresh in Ghana — locally made, straight to your door.</li>
+          <li>
+            Two products, one promise — pure raw honey & organic groundnut
+            paste.
+          </li>
+          <li>Small batch quality — every order gets personal attention.</li>
+        </ul>
+      </div>
+      <div>
+        Husk & Hive keeps it real. From the earth, straight to you. 🌿🍯
+      </div>
+    </section>
+
+    <!-- ORDER -->
+    <section class="order" id="order">
+      <h2>Ready to taste something real?</h2>
+      <a href="order.html" class="btn-primary big">Choose a Package</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Husk & Hive</p>
+      <p>Pure. Natural. Ghanaian. 🇬🇭</p>
+      <div class="footer-socials" aria-label="Social media handles">
+        <a
+          href="https://www.instagram.com/huskandhivegh/"
+          aria-label="Husk and Hive on Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a
+          href="https://wa.me/233559101078"
+          aria-label="Husk and Hive on WhatsApp"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:+233559101078" aria-label="Call Husk and Hive">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+      </div>
+    </footer>
+    <a href="order.html" class="whatsapp-float"> 💬 Order </a>
+  </body>
+</html>
