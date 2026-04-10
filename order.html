@@ -33,15 +33,15 @@
       <a href="index.html#products">Products</a>
       <a href="index.html#story">Our Story</a>
       <a href="index.html#why">Why Us</a>
-      <a href="order.html" class="nav-order">Order</a>
+     
     </nav>
   </header>
 
   <main>
     <section class="package-hero">
-      <p class="eyebrow">Choose your size</p>
+      <p class="eyebrow">Add to cart</p>
       <h1>Pick your honey or groundnut paste package.</h1>
-      <p>Select a product size and send your order through WhatsApp. We will confirm availability, delivery, and payment details.</p>
+      <p>Add your preferred jars to the basket, then send the full order through WhatsApp for delivery and payment details.</p>
     </section>
 
     <section class="package-group" aria-labelledby="honey-packages">
@@ -58,8 +58,11 @@
           <p class="package-tag">200ml</p>
           <h3>Raw Honey</h3>
           <p>A compact jar for tasting, gifting, or keeping at your desk.</p>
-          <p class="package-price">Confirm price</p>
-          <a class="btn-primary package-btn" href="https://wa.me/233559101078?text=Hello%20Husk%20%26%20Hive%2C%20I%20want%20to%20order%20200ml%20Raw%20Honey.">Choose Size</a>
+          <p class="package-price">GHS10</p>
+          <button class="btn-primary package-btn add-to-cart" type="button" data-product="Raw Honey" data-size="200ml" data-price="10">
+            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+            <span>Add to Cart</span>
+          </button>
         </article>
 
         <article class="package-card featured-package">
@@ -69,8 +72,11 @@
           <p class="package-tag">400ml</p>
           <h3>Raw Honey</h3>
           <p>A generous everyday jar for tea, breakfast, and home cooking.</p>
-          <p class="package-price">Confirm price</p>
-          <a class="btn-primary package-btn" href="https://wa.me/233559101078?text=Hello%20Husk%20%26%20Hive%2C%20I%20want%20to%20order%20400ml%20Raw%20Honey.">Choose Size</a>
+          <p class="package-price">GHS25</p>
+          <button class="btn-primary package-btn add-to-cart" type="button" data-product="Raw Honey" data-size="400ml" data-price="25">
+            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+            <span>Add to Cart</span>
+          </button>
         </article>
 
         <article class="package-card">
@@ -80,8 +86,11 @@
           <p class="package-tag">500ml</p>
           <h3>Raw Honey</h3>
           <p>A fuller pantry size for families and regular honey lovers.</p>
-          <p class="package-price">Confirm price</p>
-          <a class="btn-primary package-btn" href="https://wa.me/233559101078?text=Hello%20Husk%20%26%20Hive%2C%20I%20want%20to%20order%20500ml%20Raw%20Honey.">Choose Size</a>
+          <p class="package-price">GHS40</p>
+          <button class="btn-primary package-btn add-to-cart" type="button" data-product="Raw Honey" data-size="500ml" data-price="40">
+            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+            <span>Add to Cart</span>
+          </button>
         </article>
       </div>
     </section>
@@ -100,8 +109,11 @@
           <p class="package-tag">200ml</p>
           <h3>Groundnut Paste</h3>
           <p>A compact jar for tasting, snacks, and light everyday use.</p>
-          <p class="package-price">Confirm price</p>
-          <a class="btn-primary package-btn" href="https://wa.me/233559101078?text=Hello%20Husk%20%26%20Hive%2C%20I%20want%20to%20order%20200ml%20Groundnut%20Paste.">Choose Size</a>
+          <p class="package-price">GHS10</p>
+          <button class="btn-primary package-btn add-to-cart" type="button" data-product="Groundnut Paste" data-size="200ml" data-price="10">
+            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+            <span>Add to Cart</span>
+          </button>
         </article>
 
         <article class="package-card featured-package">
@@ -111,8 +123,11 @@
           <p class="package-tag">400ml</p>
           <h3>Groundnut Paste</h3>
           <p>A smooth jar for stews, spreads, family meals, and weekly use.</p>
-          <p class="package-price">Confirm price</p>
-          <a class="btn-primary package-btn" href="https://wa.me/233559101078?text=Hello%20Husk%20%26%20Hive%2C%20I%20want%20to%20order%20400ml%20Groundnut%20Paste.">Choose Size</a>
+          <p class="package-price">GHS25</p>
+          <button class="btn-primary package-btn add-to-cart" type="button" data-product="Groundnut Paste" data-size="400ml" data-price="25">
+            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+            <span>Add to Cart</span>
+          </button>
         </article>
 
         <article class="package-card">
@@ -122,8 +137,11 @@
           <p class="package-tag">500ml</p>
           <h3>Groundnut Paste</h3>
           <p>A fuller pantry size for cooking, sharing, and stocking up.</p>
-          <p class="package-price">Confirm price</p>
-          <a class="btn-primary package-btn" href="https://wa.me/233559101078?text=Hello%20Husk%20%26%20Hive%2C%20I%20want%20to%20order%20500ml%20Groundnut%20Paste.">Choose Size</a>
+          <p class="package-price">GHS40</p>
+          <button class="btn-primary package-btn add-to-cart" type="button" data-product="Groundnut Paste" data-size="500ml" data-price="40">
+            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+            <span>Add to Cart</span>
+          </button>
         </article>
       </div>
     </section>
@@ -144,5 +162,18 @@
       </a>
     </div>
   </footer>
+  <a
+    href="https://wa.me/233559101078"
+    class="basket-float"
+    id="basket-link"
+    aria-label="Send basket order on WhatsApp"
+  >
+    <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+    <span class="basket-text">
+      Basket
+      <span id="basket-count">0 items</span>
+    </span>
+    <span class="basket-total" id="basket-total">GHS0</span>
+  </a>
 </body>
 </html>

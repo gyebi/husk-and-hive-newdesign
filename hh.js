@@ -67,3 +67,63 @@ if (carousel) {
 
   startCarousel();
 }
+
+const basketLink = document.querySelector('#basket-link');
+
+if (basketLink) {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  const basketCount = document.querySelector('#basket-count');
+  const basketTotal = document.querySelector('#basket-total');
+  const cart = new Map();
+  const whatsappNumber = '233559101078';
+
+  const updateBasket = () => {
+    let itemCount = 0;
+    let totalPrice = 0;
+
+    const lines = Array.from(cart.values()).map((item) => {
+      itemCount += item.quantity;
+      totalPrice += item.quantity * item.price;
+
+      return `- ${item.product} (${item.size}) x${item.quantity} - GHS${item.quantity * item.price}`;
+    });
+
+    basketCount.textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`;
+    basketTotal.textContent = `GHS${totalPrice}`;
+
+    const message = lines.length
+      ? `Hello Husk & Hive, I would like to order:\n${lines.join('\n')}\n\nTotal: GHS${totalPrice}`
+      : 'Hello Husk & Hive, I would like to place an order.';
+
+    basketLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    basketLink.setAttribute(
+      'aria-label',
+      lines.length
+        ? `Send basket order on WhatsApp with ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`
+        : 'Send basket order on WhatsApp'
+    );
+  };
+
+  addToCartButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const { product, size, price } = button.dataset;
+      const key = `${product}-${size}`;
+      const existingItem = cart.get(key);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.set(key, {
+          product,
+          size,
+          price: Number(price),
+          quantity: 1,
+        });
+      }
+
+      updateBasket();
+    });
+  });
+
+  updateBasket();
+}
