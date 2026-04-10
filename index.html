@@ -262,6 +262,65 @@
         </a>
       </div>
     </footer>
-    <a href="order.html" class="whatsapp-float"> 💬 Order </a>
+    <a
+      href="#whatsapp-modal"
+      class="whatsapp-float"
+      id="whatsapp-modal-link"
+      aria-label="Open WhatsApp contact form"
+    >
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      <span>WhatsApp</span>
+    </a>
+
+    <div class="basket-modal" id="whatsapp-modal" hidden>
+      <div class="basket-modal-backdrop" data-close-whatsapp-modal="true"></div>
+      <div
+        class="basket-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="whatsapp-title"
+      >
+        <button
+          class="basket-close"
+          type="button"
+          id="whatsapp-close"
+          aria-label="Close WhatsApp form"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <p class="eyebrow">WhatsApp order</p>
+        <h2 id="whatsapp-title">Enter your details</h2>
+        <p class="basket-copy">
+          Fill in your details and we will open WhatsApp with a ready-to-send
+          message.
+        </p>
+
+        <form class="basket-form" id="whatsapp-form">
+          <label class="basket-field" for="whatsapp-name">
+            <span>Name</span>
+            <input id="whatsapp-name" name="name" type="text" autocomplete="name" required />
+          </label>
+
+          <label class="basket-field" for="whatsapp-phone">
+            <span>Phone</span>
+            <input id="whatsapp-phone" name="phone" type="tel" autocomplete="tel" required />
+          </label>
+
+          <label class="basket-field" for="whatsapp-location">
+            <span>Location</span>
+            <input id="whatsapp-location" name="location" type="text" autocomplete="address-level2" required />
+          </label>
+
+          <p class="basket-summary" id="whatsapp-summary">
+            Share your details to start your order on WhatsApp.
+          </p>
+
+          <button class="btn-primary basket-submit" type="submit">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <span>Continue to WhatsApp</span>
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

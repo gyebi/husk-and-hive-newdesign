@@ -215,3 +215,80 @@ if (basketLink) {
 
   updateBasket();
 }
+
+const whatsappModalLink = document.querySelector('#whatsapp-modal-link');
+
+if (whatsappModalLink) {
+  const whatsappModal = document.querySelector('#whatsapp-modal');
+  const whatsappClose = document.querySelector('#whatsapp-close');
+  const whatsappForm = document.querySelector('#whatsapp-form');
+  const whatsappName = document.querySelector('#whatsapp-name');
+  const whatsappSummary = document.querySelector('#whatsapp-summary');
+  const whatsappNumber = '233559101078';
+
+  const openWhatsappModal = () => {
+    if (!whatsappModal) {
+      return;
+    }
+
+    whatsappModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    whatsappName?.focus();
+  };
+
+  const closeWhatsappModal = () => {
+    if (!whatsappModal) {
+      return;
+    }
+
+    whatsappModal.hidden = true;
+    document.body.style.overflow = '';
+  };
+
+  whatsappModalLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    openWhatsappModal();
+  });
+
+  whatsappClose?.addEventListener('click', closeWhatsappModal);
+
+  whatsappModal?.addEventListener('click', (event) => {
+    if (
+      event.target instanceof HTMLElement &&
+      event.target.dataset.closeWhatsappModal
+    ) {
+      closeWhatsappModal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && whatsappModal && !whatsappModal.hidden) {
+      closeWhatsappModal();
+    }
+  });
+
+  whatsappForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(whatsappForm);
+    const name = String(formData.get('name') || '').trim();
+    const phone = String(formData.get('phone') || '').trim();
+    const location = String(formData.get('location') || '').trim();
+
+    if (!name || !phone || !location) {
+      whatsappSummary.textContent =
+        'Please complete your name, phone, and location.';
+      return;
+    }
+
+    const message = [
+      'Hello Husk & Hive, I would like to place an order.',
+      '',
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Location: ${location}`,
+    ].join('\n');
+
+    window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  });
+}
