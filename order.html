@@ -163,10 +163,10 @@
     </div>
   </footer>
   <a
-    href="https://wa.me/233559101078"
+    href="#basket-checkout"
     class="basket-float"
     id="basket-link"
-    aria-label="Send basket order on WhatsApp"
+    aria-label="Open basket checkout form"
   >
     <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
     <span class="basket-text">
@@ -175,5 +175,54 @@
     </span>
     <span class="basket-total" id="basket-total">GHS0</span>
   </a>
+
+  <div class="basket-modal" id="basket-modal" hidden>
+    <div class="basket-modal-backdrop" data-close-modal="true"></div>
+    <div
+      class="basket-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="basket-title"
+    >
+      <button
+        class="basket-close"
+        type="button"
+        id="basket-close"
+        aria-label="Close basket form"
+      >
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <p class="eyebrow">Basket checkout</p>
+      <h2 id="basket-title">Enter your order details</h2>
+      <p class="basket-copy">
+        Fill in your contact details and we will open WhatsApp with your basket
+        ready to send.
+      </p>
+
+      <form class="basket-form" id="basket-form">
+        <label class="basket-field" for="customer-name">
+          <span>Name</span>
+          <input id="customer-name" name="name" type="text" autocomplete="name" required />
+        </label>
+
+        <label class="basket-field" for="customer-phone">
+          <span>Phone</span>
+          <input id="customer-phone" name="phone" type="tel" autocomplete="tel" required />
+        </label>
+
+        <label class="basket-field" for="customer-location">
+          <span>Location</span>
+          <input id="customer-location" name="location" type="text" autocomplete="address-level2" required />
+        </label>
+
+        <p class="basket-summary" id="basket-summary">Your basket is empty.</p>
+
+        <button class="btn-primary basket-submit" type="submit">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          <span>Send to WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
