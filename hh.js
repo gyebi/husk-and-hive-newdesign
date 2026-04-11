@@ -78,6 +78,10 @@ if (basketLink) {
   const basketClose = document.querySelector('#basket-close');
   const basketForm = document.querySelector('#basket-form');
   const basketSummary = document.querySelector('#basket-summary');
+  const basketReview = document.querySelector('#basket-review');
+  const basketItems = document.querySelector('#basket-items');
+  const basketReviewTotal = document.querySelector('#basket-review-total');
+  const basketSubmit = document.querySelector('.basket-submit');
   const customerName = document.querySelector('#customer-name');
   const cart = new Map();
   const whatsappNumber = '233559101078';
@@ -97,7 +101,7 @@ if (basketLink) {
 
     basketModal.hidden = false;
     document.body.style.overflow = 'hidden';
-    customerName?.focus();
+    basketReview?.focus();
   };
 
   const closeBasketModal = () => {
@@ -113,7 +117,8 @@ if (basketLink) {
     totalItems = 0;
     totalPrice = 0;
 
-    const lines = Array.from(cart.values()).map((item) => {
+    const items = Array.from(cart.values());
+    const lines = items.map((item) => {
       totalItems += item.quantity;
       totalPrice += item.quantity * item.price;
 
@@ -122,14 +127,79 @@ if (basketLink) {
 
     basketCount.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
     basketTotal.textContent = `GHS${totalPrice}`;
+    basketReviewTotal.textContent = `GHS${totalPrice}`;
+    if (basketSubmit) {
+      basketSubmit.disabled = !totalItems;
+    }
     basketSummary.textContent = lines.length
       ? `${totalItems} ${totalItems === 1 ? 'item' : 'items'} selected. Total: GHS${totalPrice}`
       : 'Your basket is empty.';
+    basketItems.innerHTML = '';
+
+    if (items.length) {
+      items.forEach((item) => {
+        const row = document.createElement('div');
+        row.className = 'basket-item';
+
+        const details = document.createElement('div');
+        details.className = 'basket-item-details';
+
+        const title = document.createElement('strong');
+        title.textContent = `${item.product} (${item.size})`;
+
+        const price = document.createElement('span');
+        price.textContent = `GHS${item.price} each`;
+
+        const lineTotal = document.createElement('span');
+        lineTotal.textContent = `Line total: GHS${item.quantity * item.price}`;
+
+        details.append(title, price, lineTotal);
+
+        const controls = document.createElement('div');
+        controls.className = 'basket-item-controls';
+
+        const decreaseButton = document.createElement('button');
+        decreaseButton.type = 'button';
+        decreaseButton.className = 'basket-qty';
+        decreaseButton.dataset.cartAction = 'decrease';
+        decreaseButton.dataset.cartKey = item.key;
+        decreaseButton.setAttribute('aria-label', `Remove one ${item.product} ${item.size}`);
+        decreaseButton.textContent = '-';
+
+        const quantity = document.createElement('span');
+        quantity.className = 'basket-quantity';
+        quantity.textContent = item.quantity;
+
+        const increaseButton = document.createElement('button');
+        increaseButton.type = 'button';
+        increaseButton.className = 'basket-qty';
+        increaseButton.dataset.cartAction = 'increase';
+        increaseButton.dataset.cartKey = item.key;
+        increaseButton.setAttribute('aria-label', `Add one ${item.product} ${item.size}`);
+        increaseButton.textContent = '+';
+
+        const removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'basket-remove';
+        removeButton.dataset.cartAction = 'remove';
+        removeButton.dataset.cartKey = item.key;
+        removeButton.textContent = 'Remove';
+
+        controls.append(decreaseButton, quantity, increaseButton, removeButton);
+        row.append(details, controls);
+        basketItems.append(row);
+      });
+    } else {
+      const emptyMessage = document.createElement('p');
+      emptyMessage.textContent = 'Your basket is empty.';
+      basketItems.append(emptyMessage);
+    }
+
     basketLink.setAttribute(
       'aria-label',
       lines.length
-        ? `Open basket checkout form with ${totalItems} ${totalItems === 1 ? 'item' : 'items'}`
-        : 'Open basket checkout form'
+        ? `Open basket review with ${totalItems} ${totalItems === 1 ? 'item' : 'items'}`
+        : 'Open basket review'
     );
   };
 
@@ -143,6 +213,7 @@ if (basketLink) {
         existingItem.quantity += 1;
       } else {
         cart.set(key, {
+          key,
           product,
           size,
           price: Number(price),
@@ -152,6 +223,36 @@ if (basketLink) {
 
       updateBasket();
     });
+  });
+
+  basketItems?.addEventListener('click', (event) => {
+    const button = event.target instanceof HTMLElement
+      ? event.target.closest('[data-cart-action]')
+      : null;
+
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const item = cart.get(button.dataset.cartKey);
+
+    if (!item) {
+      return;
+    }
+
+    if (button.dataset.cartAction === 'increase') {
+      item.quantity += 1;
+    }
+
+    if (button.dataset.cartAction === 'decrease') {
+      item.quantity -= 1;
+    }
+
+    if (button.dataset.cartAction === 'remove' || item.quantity <= 0) {
+      cart.delete(item.key);
+    }
+
+    updateBasket();
   });
 
   basketLink.addEventListener('click', (event) => {

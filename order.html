@@ -167,7 +167,7 @@
     href="#basket-checkout"
     class="basket-float"
     id="basket-link"
-    aria-label="Open basket checkout form"
+    aria-label="Open basket review"
   >
     <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
     <span class="basket-text">
@@ -189,18 +189,28 @@
         class="basket-close"
         type="button"
         id="basket-close"
-        aria-label="Close basket form"
+        aria-label="Close basket review"
       >
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
-      <p class="eyebrow">Basket checkout</p>
-      <h2 id="basket-title">Enter your order details</h2>
+      <p class="eyebrow">Basket review</p>
+      <h2 id="basket-title">Check your basket</h2>
       <p class="basket-copy">
-        Fill in your contact details and we will open WhatsApp with your basket
-        ready to send.
+        Review your jars, add your contact details, then send the final order
+        through WhatsApp.
       </p>
 
       <form class="basket-form" id="basket-form">
+        <div class="basket-review" aria-live="polite" tabindex="-1" id="basket-review">
+          <div class="basket-review-head">
+            <span>Items</span>
+            <strong id="basket-review-total">GHS0</strong>
+          </div>
+          <div class="basket-items" id="basket-items">
+            <p>Your basket is empty.</p>
+          </div>
+        </div>
+
         <label class="basket-field" for="customer-name">
           <span>Name</span>
           <input id="customer-name" name="name" type="text" autocomplete="name" required />
